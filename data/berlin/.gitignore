@@ -1,0 +1,10 @@
+exif/
+features/
+matches/
+reports/
+undistorted/
+camera_models.json
+profile.log
+reconstruction.json
+reconstruction.meshed.json
+tracks.csv

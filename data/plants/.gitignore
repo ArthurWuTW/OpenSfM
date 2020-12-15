@@ -1,0 +1,12 @@
+exif/
+features/
+matches/
+reports/
+undistorted/
+ground_control_points.json
+reconstruction_example.json
+camera_models.json
+profile.log
+reconstruction.json
+reconstruction.meshed.json
+tracks.csv
