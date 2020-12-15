@@ -1,4 +1,10 @@
-source ./param.sh
+export DJANGO_PROJECT_DIR=$HOME/Desktop/django_project
+export REPO_DIR=$(realpath $(realpath $(dirname $PWD)))
+export OPENSFM_DATA_PLANTS_DIR=$REPO_DIR/data/plants
+export OPENSFM_PLANT_DATA_IMAGES_DIR=$REPO_DIR/data/plants/images
+export DJANGO_3DCONSTRUCTION_IMAGE_DIR=$DJANGO_PROJECT_DIR/data_3dConstruction_image
+export DJANGO_MESH_JSON_DIR=$DJANGO_PROJECT_DIR/data_3dConstruction_meshJson
+
 
 cd $DJANGO_PROJECT_DIR
 ls
