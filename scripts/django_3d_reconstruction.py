@@ -16,11 +16,13 @@ def signal_handler(signal, frame):
 
 def job():
     while not stop:
-        pause_time = datetime.datetime.now().replace(hour=7, minute=12, second=0, microsecond=0)
+        pause_time = datetime.datetime.now().replace(hour=1, minute=30, second=0, microsecond=0) \
+                     + datetime.timedelta(days=1)
         print(pause_time)
         pause.until(pause_time)
 
         os.system('./generate_and_copy_file_to_django_dir.sh')
+
 
         break
 
