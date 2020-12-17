@@ -24,8 +24,6 @@ def job():
         os.system('./generate_and_copy_file_to_django_dir.sh')
 
 
-        break
-
 if __name__ == '__main__':
 
     t = threading.Thread(target = job)
