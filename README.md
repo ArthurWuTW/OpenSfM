@@ -1,29 +1,28 @@
-OpenSfM ![Docker workflow](https://github.com/mapillary/opensfm/workflows/Docker%20CI/badge.svg)
-=======
+# OpenSfm
 
-## Overview
-OpenSfM is a Structure from Motion library written in Python. The library serves as a processing pipeline for reconstructing camera poses and 3D scenes from multiple images. It consists of basic modules for Structure from Motion (feature detection/matching, minimal solvers) with a focus on building a robust and scalable reconstruction pipeline. It also integrates external sensor (e.g. GPS, accelerometer) measurements for geographical alignment and robustness. A JavaScript viewer is provided to preview the models and debug the pipeline.
+## Prerequisites
+#### 1. **[django_project](https://github.com/ArthurWuTW/django_project)** Run website app in its own docker container
+#### 2. **[django_project](https://github.com/ArthurWuTW/django_project)** Server has received a sequence of images from raspberry in the field
+#### 3. **[docker-script-opensfm](https://github.com/ArthurWuTW/docker-script-opensfm)** Build Docker Image
 
-<p align="center">
-  <img src="https://docs.opensfm.org/_images/berlin_viewer.jpg" />
-</p>
+# Run 3D reconstructon app
+#### 1. start container and enter container shell in **[docker-script-opensfm](https://github.com/ArthurWuTW/docker-script-opensfm)**
+#### 2. setup params in scripts/generate_and_copy_file_to_django_dir.sh. If you place django_project in Desktop directory, use default settings and skip this step.
+```sh
 
-Checkout this [blog post with more demos](http://blog.mapillary.com/update/2014/12/15/sfm-preview.html)
+export DJANGO_PROJECT_DIR=$HOME/Desktop/django_project
+export REPO_DIR=$(realpath $(realpath $(dirname $PWD)))
+export OPENSFM_DATA_PLANTS_DIR=$REPO_DIR/data/plants
+export OPENSFM_PLANT_DATA_IMAGES_DIR=$REPO_DIR/data/plants/images
+export DJANGO_3DCONSTRUCTION_IMAGE_DIR=$DJANGO_PROJECT_DIR/data_3dConstruction_image
+export DJANGO_MESH_JSON_DIR=$DJANGO_PROJECT_DIR/data_3dConstruction_meshJson
 
+...
 
-## Getting Started
+```
 
-* [Building the library][]
-* [Running a reconstruction][]
-* [Documentation][]
-
-
-[Building the library]: https://docs.opensfm.org/building.html (OpenSfM building instructions)
-[Running a reconstruction]: https://docs.opensfm.org/using.html (OpenSfM usage)
-[Documentation]: https://docs.opensfm.org  (OpenSfM documentation)
-
-## License
-OpenSfM is BSD-style licensed, as found in the LICENSE file.  See also the Facebook Open Source [Terms of Use][] and [Privacy Policy][]
-
-[Terms of Use]: https://opensource.facebook.com/legal/terms (Facebook Open Source - Terms of Use)
-[Privacy Policy]: https://opensource.facebook.com/legal/privacy (Facebook Open Source - Privacy Policy)
+#### 3. Run the app
+```sh
+cd scripts
+python3 django_3d_reconstruction.py
+```
