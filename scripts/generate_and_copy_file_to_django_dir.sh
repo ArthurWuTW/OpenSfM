@@ -12,8 +12,13 @@ TODAY=$(date +"%Y_%m_%d_*")
 echo $TODAY
 
 # clean opensfm images directory
-cd $OPENSFM_PLANT_DATA_IMAGES_DIR
-rm -r *
+rm $OPENSFM_PLANT_DATA_IMAGES_DIR/*
+rm -r $OPENSFM_DATA_PLANTS_DIR/exif
+rm -r $OPENSFM_DATA_PLANTS_DIR/features
+rm -r $OPENSFM_DATA_PLANTS_DIR/matches
+rm -r $OPENSFM_DATA_PLANTS_DIR/reports
+rm -r $OPENSFM_DATA_PLANTS_DIR/undistorted
+
 
 # copy from django 3dconstruction_image dir
 # to opensfm image directory
