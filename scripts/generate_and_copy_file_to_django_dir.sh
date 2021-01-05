@@ -1,4 +1,4 @@
-export DJANGO_PROJECT_DIR=$HOME/Desktop/django_project
+export DJANGO_PROJECT_DIR=$HOME/Desktop/django_project/monitor_app/static
 export REPO_DIR=$(realpath $(realpath $(dirname $PWD)))
 export OPENSFM_DATA_PLANTS_DIR=$REPO_DIR/data/plants
 export OPENSFM_PLANT_DATA_IMAGES_DIR=$REPO_DIR/data/plants/images
