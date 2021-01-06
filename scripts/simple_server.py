@@ -8,7 +8,7 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write("GET request for {}".format(self.path).encode('utf-8'))
         print(self.path)
 
-        if(self.path=='/do_3d_reconsturction'):
+        if(self.path=='/do_3d_reconstruction'):
             print("run 3d reconstruction")
             os.system('./generate_and_copy_file_to_django_dir.sh')
 
